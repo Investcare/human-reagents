@@ -1,0 +1,63 @@
+//Миксины для футтера
+//Миксин для паддингов в боксе футера
+@mixin ui-footerbox-padding {
+   padding-top: $ui-step * 10;
+   padding-bottom: $ui-step * 5;
+
+   gap: $ui-step * 15;
+
+   @media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+      padding-top: $ui-step * 10;
+      padding-bottom: $ui-step * 5;
+
+      gap: $ui-step * 15;
+   }
+
+   @media (min-width: $mobileSmall) and (max-width: $mobile){
+      @include adaptiveValue("padding-top", 23, 50, 1, 637, 480);
+      @include adaptiveValue("padding-bottom", 23, 25, 1, 637, 480);
+      @include adaptiveValue("gap", 45, 75, 1, 637, 480);
+   }
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+      @include adaptiveValue("padding-top", 50, 23, 1, 950, 637);
+      @include adaptiveValue("padding-bottom", 25, 23, 1, 950, 637);
+
+      gap: $ui-step * 9;
+   }
+
+   @media (min-width: $pc){
+      padding-top: $ui-step * 10;
+      padding-bottom: $ui-step * 5;
+
+      gap: $ui-step * 9;
+   }
+}
+
+//Миксин для колоночного расположения футера
+@mixin ui-footerbox-column-orientation {
+   display: flex;
+   flex-direction: column;
+
+   gap: $ui-step * 10;
+
+   @media (min-width: $pc){
+      flex-direction: row;
+
+      gap: 0;
+   }
+}
+
+//Миксин для выравнивая элементов по левой части футера
+@mixin ui-footerbox-align-orientation {
+   display: flex;
+   justify-content: flex-start;
+
+   @media (min-width: $pc){
+      display: flex;
+      justify-content: center;
+      flex: 0 1 33.333%;
+   }
+}
+
+//========================================================================================================================================================

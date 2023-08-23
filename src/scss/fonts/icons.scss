@@ -1,0 +1,97 @@
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+[class*="_icon-"] {
+	&:before {
+		@extend %ic;
+		display: block;
+	}
+	&:after {
+		@extend %ic;
+		display: block;
+	}
+}
+
+// @font-face {
+// 	font-family: 'icons';
+// 	src:  url('fonts/icons.eot?xt2m3j');
+// 	src:  url('fonts/icons.eot?xt2m3j#iefix') format('embedded-opentype'),
+// 		url('fonts/icons.ttf?xt2m3j') format('truetype'),
+// 		url('fonts/icons.woff?xt2m3j') format('woff'),
+// 		url('fonts/icons.svg?xt2m3j#icons') format('svg');
+// 	font-weight: normal;
+// 	font-style: normal;
+// 	font-display: block;
+// }
+
+// [class^="_icon-"], [class*=" _icon-"] {
+// 	/* use !important to prevent issues with browser extensions that change fonts */
+// 	font-family: 'icons' !important;
+// 	speak: never;
+// 	font-style: normal;
+// 	font-weight: normal;
+// 	font-variant: normal;
+// 	text-transform: none;
+// 	line-height: 1;
+
+// 	-webkit-font-smoothing: antialiased;
+// 	-moz-osx-font-smoothing: grayscale;
+// }
+ 
+._icon-arrow-down:after {
+	content: "\e950";
+	font-size: rem(7);
+	margin-left: rem(3);
+	padding-top: rem(5);
+ }
+ ._icon-arrow-down-big:before {
+	content: "\e951";
+ }
+ ._icon-arrow-down-gray-select:before {
+	content: "\e952";
+ }
+ ._icon-flask:after {
+	content: "\e953";
+ }
+ ._icon-instagram:before {
+	content: "\e954";
+ }
+ ._icon-investcare-human:after {
+	content: "\e955";
+ }
+ ._icon-logo-footer:before {
+	content: "\e956";
+	font-size: rem(30);
+ }
+ ._icon-logo-header:before {
+	content: "\e957";
+	font-size: rem(25);
+ }
+ ._icon-logo-pale:before {
+	content: "\e958";
+ }
+ ._icon-telegram:before {
+	content: "\e959";
+ }
+ ._icon-twitter:before {
+	content: "\e960";
+ }
+ ._icon-whatsapp:before {
+	content: "\e961";
+ }
+ ._icon-trangle:before {
+	content: "\e962";
+ }
+ ._icon-linkedin:before {
+	content: "\e963";
+ }
+ ._icon-facebook:before {
+	content: "\e964";
+ }

@@ -1,0 +1,659 @@
+// Миксины заголовки и общие селекторы для бэм блоков...
+// Марджены только вверхние и левые
+
+//========================================================================================================================================================
+// Тут общий стиль
+// @mixin ui-border {
+   // стиль 1
+   // стиль 2
+// }
+
+// А тут его вызов
+// .block {
+   //  @include ui-border(); 
+// }
+
+//========================================================================================================================================================
+//Тут использование функций
+// :root {
+   // --ui-color-background: #FFFFFF;
+// }
+
+//А тут их вызов
+// .block {
+      // background: var(--ui-color-background);
+// }
+
+//========================================================================================================================================================
+//Миксин общего стиля
+// @mixin card() {
+//    padding: 16px;
+//    border: 1px solid #ccc;
+//    background-color: #fff;
+// }
+
+//Стили компонента карточки
+// .cool-card {
+   // @include card;
+// }
+
+//Стили другой очень похожей карточки
+// .dark-card {
+   // @include card;
+   // background-color: black;
+   // color: white;
+// }
+//========================================================================================================================================================
+//Пример переиспользования стилей для адаптива
+// .expample {
+//    // Для самых маленьких мобилок
+//    margin-bottom: 5px;
+//    display: flex;
+
+//    @media (max-width: $mobileSmall){
+//       @include adaptiveValue("margin-bottom", 100, 10, 1, 480, 380);
+//    }
+
+//    @media (max-width: $mobile){
+//       @include adaptiveValue("margin-bottom", 200, 100, 1, 637, 480);
+//    }
+
+//    @media (max-width: $tablet){
+//       @include adaptiveValue("margin-bottom", 300, 200, 1, 950, 637);
+//    }
+
+//    @media (min-width: $pc){
+//       margin-bottom: 400px;
+//    }
+// }
+//========================================================================================================================================================
+//кейфрейм для движения иконок
+@keyframes rotateIcon{
+   0%{
+      transform: rotate(10deg);
+   }
+   100%{
+      transform: rotate(-10deg);
+   }
+}
+
+//========================================================================================================================================================
+//Ховеры только когда используется мышка
+$mouse-device: '(hover: hover) and (pointer: fine)';
+
+// .button1 {
+//    background-color: red;
+
+//    &:hover {
+
+//       @media #{$mouse-device} {
+//          background: black;
+//       }
+//    }
+// }
+
+//========================================================================================================================================================
+//Шаги для отступов и размеров
+$ui-step: 0.3125rem;
+
+@mixin ui-margin-space($direction, $size) {
+   @if ($direction == top) {
+      margin-top: $ui-step * $size;
+   }
+
+   @if ($direction == bottom) {
+      margin-bottom: $ui-step * $size;
+   }
+
+   @if ($direction == left) {
+      margin-left: $ui-step * $size;
+   }
+
+   @if ($direction == right) {
+      margin-right: $ui-step * $size;
+   }
+}
+
+@mixin ui-padding-space($direction, $size) {
+   @if ($direction == top) {
+      padding-top: $ui-step * $size;
+   }
+
+   @if ($direction == bottom) {
+      padding-bottom: $ui-step * $size;
+   }
+
+   @if ($direction == left) {
+      padding-left: $ui-step * $size;
+   }
+
+   @if ($direction == right) {
+      padding-right: $ui-step * $size;
+   }
+}
+
+// .block{
+      // @include ui-margin-space(top, 2); Отступ в 10 пикселей сверху
+      // @include ui-padding-space(top, 2); Отступ в 10 пикселей сверху
+      // height: $ui-step * 10; миксин множитель в 50 пикселей высоты объекта
+// }
+
+//========================================================================================================================================================
+//Z-Index элементы
+$ui-index-0: 0; // Для наползающих элементов в общем потоке
+$ui-index-1: 1; // Для наползающих элементов в общем потоке
+$ui-index-2: 2; // Для наползающих элементов в общем потоке
+$ui-index-3: 3; // Для масок
+$ui-index-4: 4; // Для сайдбаров
+$ui-index-5: 5; // Для модалок (попапы)
+$ui-index-6: 6; // Для экстренных элементов
+
+// Пример использования 
+// .popup {
+   // position: fixed;
+   // z-index: $ui-index-5;
+// }
+
+//========================================================================================================================================================
+//Миксины шрифтов
+@mixin ui-h1 {
+   font-family: "M PLUS 1p";
+
+   font-size: rem(58);
+   line-height: math.div(65, 58);
+   font-style: normal;
+   font-weight: 700;
+
+   color: $whiteColor;
+
+   @media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+      font-size: rem(58);
+      line-height: math.div(65, 58);
+   }
+
+   @media (min-width: $mobileSmall) and (max-width: $mobile){
+      @include adaptiveValue("font-size", 68, 58, 1, 637, 480);
+      @include adaptiveValue("line-height", 85, 65, 1, 637, 480);
+   }
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+      font-size: rem(68);
+      line-height: math.div(85, 68);
+   }
+
+   @media (min-width: $pc){
+      font-size: rem(68);
+      line-height: math.div(85, 68);
+   }
+}
+
+@mixin ui-h2 {
+   font-size: rem(24);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 400;
+   
+   color: $whiteColor;
+}
+
+@mixin ui-h3 {
+   font-family: "M PLUS 1p";
+
+   font-size: rem(24);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+   
+   color: $mainColor;
+}
+
+@mixin ui-h4 {
+   font-family: "M PLUS 1p";
+
+   font-size: rem(16);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+
+   color: $mainColor;
+
+   @media (min-width: $mobileXSmall) and (max-width: $mobile){
+      @include adaptiveValue("font-size", 18, 16, 1, 637, 380);
+   }
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+      font-size: rem(18);
+   }
+
+   @media (min-width: $pc){
+      font-size: rem(18);
+   }
+}
+
+@mixin ui-h5 {
+   font-family: "M PLUS 1p";
+
+   font-size: rem(32);
+   line-height: math.div(35, 32);
+   font-style: normal;
+   font-weight: 700;
+
+   color: $blueColor;
+}
+
+@mixin ui-h6 {
+   font-size: rem(16);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 400;
+
+   color: $orangeColor;
+}
+
+@mixin ui-p {
+   font-size: rem(16);
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+
+   color: $mainColor;
+}
+
+//========================================================================================================================================================
+//Свйства дисплея строка
+@mixin ui-globalnav-flex-row {
+   display: flex;
+	flex-direction: row;
+}
+
+//Свйства дисплея колонна
+@mixin ui-globalnav-flex-column {
+   display: flex;
+	flex-direction:column;
+}
+
+//========================================================================================================================================================
+//Миксин главной страницы
+//Миксин для main страницы и main секции паддингов в боксе секции
+@mixin ui-pagebox-padding {
+   @include ui-padding-space(top, 41);
+   @include ui-padding-space(bottom, 10);
+
+   @media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+      @include ui-padding-space(top, 41);
+      @include ui-padding-space(bottom, 10);
+   }
+
+   @media (min-width: $mobileSmall) and (max-width: $mobile){
+      @include adaptiveValue("padding-top", 185, 205, 1, 637, 480);
+      @include adaptiveValue("padding-bottom", 135, 50, 1, 637, 480);
+   }
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+      @include ui-padding-space(top, 37);
+      @include ui-padding-space(bottom, 27);
+   }
+
+   @media (min-width: $pc){
+      @include ui-padding-space(top, 37);
+      @include ui-padding-space(bottom, 27);
+   }
+}
+
+//Миксин для main секций паддингов
+@mixin ui-section-padding {
+   @include ui-padding-space(top, 10);
+   @include ui-padding-space(bottom, 10);
+}
+
+//========================================================================================================================================================
+//Миксины для элементов карточного типа
+//Миксин поведения карточки
+@mixin ui-shell-box {
+   padding: rem(3);
+   border-radius: rem(4);
+
+   background: $whiteColor;
+
+   width: 100%;
+}
+
+@mixin ui-border-box {
+   background: $whiteColor;
+
+   border-radius: rem(4);
+   border: rem(1) solid #F6F6F6;
+
+   width: 100%;
+   height: 100%;
+
+}
+
+//========================================================================================================================================================
+//Миксины элемента карточки товара
+//Карточка топ реагентов
+@mixin ui-top-card-formating {
+
+   &__content-border{
+      width: rem(350);
+      height: rem(517);
+
+      border-radius: rem(4);
+      padding: rem(6); 
+
+      background: $blueColor;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("width", 301, 350, 1, 637, 480);
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         width: rem(301);
+      }
+
+      @media (min-width: $pc){
+         width: rem(301);
+      }
+
+      &_blue{
+         background: #057D8D;
+      }
+
+      &_dark-blue{
+         background: #03505A;
+      }
+
+      &_image{
+         background: url("@img/home/section-04/image-background.jpg") center / cover no-repeat;
+      }
+   }
+
+   &__content-layout{
+      @include ui-globalnav-flex-column;
+      justify-content: space-between;
+
+      border-radius: rem(4);
+      border: 2px solid $whiteColor;
+
+      width: 100%;
+      height: 100%;
+
+      padding: rem(12) rem(24) rem(18) rem(24);
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("padding-left", 20, 24, 1, 637, 480);
+         @include adaptiveValue("padding-right", 20, 24, 1, 637, 480);
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include ui-padding-space(left, 4);
+         @include ui-padding-space(right, 4);
+      }
+
+      @media (min-width: $pc){
+         @include ui-padding-space(left, 4);
+         @include ui-padding-space(right, 4);
+      }
+   }
+
+   &__text-box {
+      @include ui-globalnav-flex-column;
+   }
+
+   &__title {
+      &:hover {
+         .slide-content{
+            &__blue-title {
+               @media #{$mouse-device} {
+                  color: $lightColor;
+               }
+            }   
+            &__orange-subtitle {
+               @media #{$mouse-device} {
+                  color: $lightColor;
+               }
+            }
+         }
+      }
+   }
+
+   &__blue-title {
+      @include ui-h5;
+      color: $whiteColor;
+   }
+
+   &__orange-subtitle {
+      @include ui-h6;
+      color: $whiteColor;
+
+      margin-top: rem(3);
+   }
+
+   &__specification {
+      @include ui-margin-space(top, 5);
+      font-style: normal;
+      line-height: normal;
+
+      font-size: rem(18);
+
+      color: $whiteColor;
+   }
+
+   &__manufacturer {
+   }
+
+   &__type {
+   }
+
+   &__format {
+   }
+
+   &__text {
+      @include ui-margin-space(top, 3);
+      
+      color: $whiteColor;
+   }
+
+   &__download-box {
+      @include ui-globalnav-flex-row();
+
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__download-button {
+      @include ui-download-button;
+      
+      color: $whiteColor;
+
+      &:hover {
+         @media #{$mouse-device} {
+            color: $lightColor;
+         }
+      }
+   }
+
+   &__icon {
+      &:hover {
+         @media #{$mouse-device} {
+            animation: rotateIcon .1s linear 4 alternate;
+         }
+      }
+      
+      &::after{
+         cursor: pointer;
+
+         font-size: rem(47);
+         font-weight: 700;
+
+         color: $whiteColor;
+      }
+   }
+}
+//Карточка реагентов
+@mixin ui-card-formatting {
+   &__content-layout{
+      @include ui-globalnav-flex-column;
+      justify-content: space-between;
+
+      width: rem(350);
+      height: rem(517);
+
+      padding: rem(18) rem(15) rem(28) rem(30);
+      border-radius: rem(4);
+      
+      background: $lightColor;
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.10));
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("width", 301, 350, 1, 637, 480);
+         @include adaptiveValue("padding-left", 25, 30, 1, 637, 480);
+         @include adaptiveValue("padding-right", 17, 15, 1, 637, 480);
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include ui-padding-space(left, 5);
+         padding-right: rem(17);
+
+         width: rem(301);
+      }
+
+      @media (min-width: $pc){
+         @include ui-padding-space(left, 5);
+         padding-right: rem(17);
+
+         width: rem(301);
+      }
+   }
+
+   &__text-box {
+      @include ui-globalnav-flex-column;
+   }
+
+   &__title {
+      &:hover {
+         .slide-content{
+            &__blue-title {
+               @media #{$mouse-device} {
+                  color: #057D8D;
+               }
+            }   
+            &__orange-subtitle {
+               @media #{$mouse-device} {
+                  color: #F56428;
+               }
+            }
+         }
+      }
+   }
+
+   &__blue-title {
+      @include ui-h5;
+   }
+
+   &__orange-subtitle {
+      @include ui-h6;
+      margin-top: rem(3);
+   }
+
+   &__specification {
+      @include ui-margin-space(top, 5);
+      font-style: normal;
+      line-height: normal;
+
+      font-size: rem(18);
+   }
+
+   &__manufacturer {
+   }
+
+   &__type {
+   }
+
+   &__format {
+   }
+
+   &__text {
+      @include ui-margin-space(top, 3);
+   }
+
+   &__download-box {
+   }
+
+   &__download-button{
+      @include ui-download-button;
+   }
+}
+//Миксин кнопки загрузки
+@mixin ui-download-button {
+   font-family: "M PLUS 1p";
+
+   font-size: rem(16);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+
+   color: $orangeColor;
+
+   &:hover {
+      @media #{$mouse-device} {
+         color: #F56428;
+      }
+   }
+}
+
+@mixin ui-swiper-dotts {
+   @include ui-globalnav-flex-row;
+   gap: rem(4);
+
+   .swiper-pagination-bullet{
+      width: rem(8);
+      height: rem(8);
+      border-radius: 50%;
+
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease 0s;
+
+      background-color: $blueColor;
+      opacity: 0.25;
+   }
+
+   .swiper-pagination-bullet-active{
+      background-color: $blueColor;
+      opacity: 1;
+   }
+}
+
+//========================================================================================================================================================
+//Миксины для инпут секции
+@mixin ui-input-form {
+   @include ui-padding-space(left, 3);
+
+   outline: none !important;
+
+   &::placeholder {
+      font-size: rem(16);
+      line-height: normal;
+      font-style: normal;
+      font-weight: 400;
+
+      color: $darkColor;
+      opacity: 0.35;
+   }
+
+   &:focus{
+      border: 1px solid $blueColor;
+   }
+
+   &._sending{
+      &::after{
+         opacity: 1;
+         visibility: visible;
+      }
+   }
+
+   &._error{
+      border: 1px solid #BA0C2E;
+   }
+}

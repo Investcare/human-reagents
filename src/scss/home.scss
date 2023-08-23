@@ -1,0 +1,660 @@
+//========================================================================================================================================================
+.main-block {
+   position: relative;
+
+   &__image {
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      background-color: $darkColor;
+
+      img{
+         mix-blend-mode: multiply;
+         position: absolute;
+         object-fit: cover;
+
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+      }
+   }
+
+   &__container {
+   }
+
+   &__box {
+      @include ui-pagebox-padding;
+
+      position: relative;
+      z-index: $ui-index-2;
+   }
+
+   &__title-box {
+      h1 {
+         @include ui-h1;
+      }
+
+      h2 {
+         @include ui-margin-space(top, 10);
+         @include ui-h2;
+
+         @media (min-width: $mobileSmall) and (max-width: $mobile){
+            @include adaptiveValue("margin-top", 45, 50, 1, 637, 480);
+         }
+
+         @media (min-width: $mobile) and (max-width: $tablet){
+            @include ui-margin-space(top, 9);
+         }
+
+         @media (min-width: $pc){
+            @include ui-margin-space(top, 9);
+         }
+      }
+
+      &__br1 {
+         display: block;
+         
+         @media (min-width: $mobileSmall) and (max-width: $tablet){
+            display: none;
+         }
+      
+         @media (min-width: $pc){
+            display: none;
+         }
+      }
+   
+      &__br2 {
+         display: none;
+   
+         @media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+            display: none;
+         }
+      
+         @media (min-width: $mobileSmall) and (max-width: $tablet){
+            display: block;
+         }
+      
+         @media (min-width: $pc){
+            display: block;
+         }
+      }
+   }
+
+   &__button-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      @include ui-margin-space(top, 15);
+      gap: $ui-step * 3;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("margin-top", 45, 75, 1, 637, 480);
+      }
+   
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include adaptiveValue("gap", 35, 5, 1, 950, 637);
+         @include ui-margin-space(top, 9);
+      }
+   
+      @media (min-width: $pc){
+         gap: $ui-step * 7;
+         @include ui-margin-space(top, 9);
+      }
+   }
+}
+.block-button-box {
+
+   &__inquire-button {
+   }
+
+   &__download-button {
+   }
+}
+
+//========================================================================================================================================================
+.supply-section {
+   background: $lightColor;
+
+   &__container {
+   }
+
+   &__box {
+      @include ui-section-padding;
+      @include ui-globalnav-flex-column;
+
+      gap: $ui-step *10;
+
+      @media (min-width: em(829.98)) and (max-width: $tablet){
+         @include ui-globalnav-flex-row;
+         flex-direction: row-reverse;
+         justify-content: space-between;
+
+         @include adaptiveValue("gap", 111, 20, 1, 950, 830);
+      }
+
+      @media (min-width: $pc){
+         @include ui-globalnav-flex-row;
+         flex-direction: row-reverse;
+         justify-content: space-between;
+
+         gap: rem(111);
+      }
+   }
+
+   &__inquire-box {
+      @include ui-globalnav-flex-column;
+      justify-content: space-between;
+
+      gap: $ui-step * 5;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("gap", 100, 25, 1, 637, 480);
+      }
+   }
+
+   &__componentsheet-box {
+      @include ui-globalnav-flex-column;
+      gap: $ui-step * 4;
+   }
+}
+.section-inquire-box {
+
+   &__title-box {
+   }
+
+   &__title {
+      @include ui-h3;
+   }
+
+   &__text {
+      @include ui-margin-space (top, 5);
+      @include ui-p;
+   }
+
+   &__inquire-button {
+   }
+}
+.section-componentsheet-box {
+
+   &__shell {
+      @include ui-shell-box;
+      height: $ui-step * 14;
+
+      @media (min-width: em(829.98)) and (max-width: $tablet){
+            @include adaptiveValue("width", 444, 400, 1, 950, 830);
+      }
+
+      @media (min-width: $pc){
+         width: rem(444);
+      }
+   }
+
+   &__border {
+      @include ui-border-box;
+      @include ui-globalnav-flex-row;
+      justify-content: space-between;      
+
+      padding: rem(4) rem(4) rem(4) rem(15);
+
+      &::after {
+         content: "";
+         justify-content: end;
+         align-self: end;
+         
+         height:100%;
+         width: rem(6);
+         border-radius: 0px rem(4) rem(4) 0px;
+
+         background: $orangeColor;
+      }
+   }
+
+   &__text-box{
+      @include ui-globalnav-flex-column;
+      gap: rem(2);
+      padding-top: rem(4);
+
+      h4{
+         @include ui-h4;
+         display: flex;
+         align-items: center;
+         flex-wrap: nowrap;
+      
+         &::before{
+            content: "";
+            
+            height: rem(8);
+            width: rem(8);
+            border-radius: 50%;
+
+            background: $orangeColor;
+
+            margin-right: rem(7);
+         }
+      }
+
+      p{
+         @include ui-p;
+         @include ui-padding-space(left, 3);
+      }
+   }
+}
+
+//========================================================================================================================================================
+.best-reagent {
+   background: $lightColor;
+
+   &__container {
+   }
+
+   &__box {
+      @include ui-section-padding;
+      @include ui-globalnav-flex-column;
+
+      gap: $ui-step *10;
+
+      @media (min-width: em(829.98)) and (max-width: $tablet){
+         @include ui-globalnav-flex-row;
+         flex-direction: row-reverse;
+         justify-content: space-between;
+
+         @include adaptiveValue("gap", 111, 20, 1, 950, 830);
+      }
+
+      @media (min-width: $pc){
+         @include ui-globalnav-flex-row;
+         flex-direction: row-reverse;
+         justify-content: space-between;
+
+         gap: rem(111);
+      }
+   }
+
+   &__componentsheet-box {
+   }
+
+   &__inquire-box {
+      @include ui-globalnav-flex-column;
+      justify-content: space-between;
+
+      gap: $ui-step * 10;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("gap", 100, 50, 1, 637, 480);
+      }
+   }
+}
+.section-banner-box {
+
+   &__shell {
+      @include ui-shell-box;
+      position: relative;
+
+      height: $ui-step * 89;
+
+      padding: rem(6);
+
+      @media (min-width: em(829.98)) and (max-width: $tablet){
+         @include adaptiveValue("width", 428, 400, 1, 950, 830);
+      }
+
+      @media (min-width: $pc){
+         width: rem(428);
+      }
+   }
+
+   &__border {
+      @include ui-border-box;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      z-index: $ui-index-1;
+
+      border: rem(2) solid $whiteColor;
+      background: none;
+
+      @include ui-padding-space(left, 3);
+      
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("padding-left", 30, 15, 1, 637, 480);
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include ui-padding-space(left, 6);
+      }
+
+      @media (min-width: $pc){
+         @include ui-padding-space(left, 6);
+      }
+
+      p{
+         @include ui-h1;
+      }
+   }
+
+   &__image {
+      position: absolute;
+      z-index: $ui-index-0;
+
+      border-radius: rem(4);
+
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      background-color: $blueColor;
+
+      img{
+         mix-blend-mode: multiply;
+         position: absolute;
+         object-fit: cover;
+
+         border-radius: rem(4);
+
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+      }
+   }
+}
+
+//========================================================================================================================================================
+.top-products {
+   background: $lightColor;
+
+   &__container {
+   }
+
+   &__box {
+      @include ui-section-padding;
+      @include ui-globalnav-flex-column;
+   }
+
+   &__title-box {
+      @include ui-h3;
+   }
+
+   &__slider-box {
+   }
+
+   &__button-box {
+      @include ui-margin-space(top, 4);
+
+      display: flex;
+      justify-content: center;
+   }
+}
+.top-products-block-slider-box {
+
+   &__slider {
+   }
+
+   &__swiper {
+	   padding: rem(17) 0px rem(0) 0px;
+   }
+
+   &__slide {
+      display: flex;
+      justify-content: center;
+   }
+
+   &__controll {
+      @include ui-margin-space(top, 2);
+
+      @media (min-width: $pc){
+         @include ui-margin-space(top, 4);
+      }
+   }
+}
+.slide-content {
+   @include ui-top-card-formating;
+}
+.controll-case {
+   display: flex;
+   justify-content: center;
+
+   @include ui-swiper-dotts;
+
+   &__dotts{
+      @include ui-swiper-dotts;
+   }
+}
+.top-products-block-button-box {
+   &__button{
+      width: 100%;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("width", 301, 350, 1, 637, 480);
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         width: rem(301);
+      }
+
+      @media (min-width: $pc){
+         width: rem(301);
+      }
+   }
+} 
+
+//========================================================================================================================================================
+.contact-us {
+   background: $lightColor;
+
+   &__container {
+   }
+
+   &__box {
+      @include ui-section-padding;
+      @include ui-globalnav-flex-column;
+
+      gap: $ui-step * 5;
+   }
+}
+.contact-us-box {
+
+   &__title {
+      @include ui-h3;
+   }
+
+   &__content {
+      @include ui-globalnav-flex-column;
+      gap: $ui-step * 10;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include ui-globalnav-flex-row;
+         gap: rem(8);
+      }
+
+      @media (min-width: $pc){
+         @include ui-globalnav-flex-row;
+         gap: rem(8);
+      }
+   }
+
+   &__banner-form {
+   }
+}
+.contact-form-box {
+
+   &__form {
+      @include ui-globalnav-flex-column;
+      width: 100%;
+
+      position: relative;
+
+      &::after {
+			content: "";
+			position: fixed;
+			visibility: hidden;
+         z-index: $ui-index-6;
+
+			top: 0;
+			left: 0;
+			
+         width: 100%;
+			height: 100%;
+
+         background: rgba(8, 195, 220, 0.9) url("@img/home/section-05/loading.gif") center / 50px no-repeat;
+			opacity: 0;
+
+			transition: all 0.5s ease 0s;
+		}
+   }
+
+   &__form._sending::after{
+      opacity: 1;
+      visibility: visible;
+   }
+
+   &__border {
+      @include ui-shell-box;
+      @include ui-p;
+
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.10));
+
+      &:not(:first-child) {
+         @include ui-margin-space(top, 3);
+      }
+   }
+
+   &__input-name {
+      @include ui-border-box;
+      @include ui-input-form;
+
+      height: rem(32);
+   }
+
+   &__input-mail {
+      @include ui-border-box;
+      @include ui-input-form;
+      
+      height: rem(32);
+   }
+
+   &__input-textarea {
+      @include ui-border-box;
+      @include ui-input-form;
+
+      resize: vertical;
+      min-height: $ui-step * 28;
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         min-height: $ui-step * 34;
+      }
+
+      @media (min-width: $pc){
+         min-height: $ui-step * 34;
+      }
+	}
+
+   &__button {
+      @include ui-margin-space(top, 10);
+
+      @media (min-width: $mobileSmall) and (max-width: $mobile){
+         @include adaptiveValue("margin-top", 25, 50, 1, 637, 480);
+      }
+
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include ui-margin-space(top, 5);
+      }
+
+      @media (min-width: $pc){
+         @include ui-margin-space(top, 5);
+      }
+   }
+}
+.banner-form-box {
+
+	&__shell {
+      @include ui-shell-box;
+      position: relative;
+
+      height: $ui-step * 57;
+      width: 100%;
+
+      padding: rem(6);
+   
+      @media (min-width: $mobile) and (max-width: $tablet){
+         @include adaptiveValue("width", 300, 200, 1, 950, 637);
+      }
+   
+      @media (min-width: $pc){
+         width: $ui-step * 60;
+      }
+   }
+
+   &__border {
+      @include ui-border-box;
+      @include ui-padding-space(bottom, 6);
+
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      z-index: $ui-index-1;
+
+      border: rem(2) solid $whiteColor;
+      background: none;
+
+      text-align: center;
+
+      p{
+         @include ui-h3;
+
+         color: $whiteColor;
+      }
+
+      @media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+         @include ui-padding-space(right, 4);
+         @include ui-padding-space(left, 4);
+      }
+   }
+
+   &__image {
+      position: absolute;
+      z-index: $ui-index-0;
+
+      border-radius: rem(4);
+
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      background-color: $blueColor;
+
+      img{
+         mix-blend-mode: multiply;
+         position: absolute;
+         object-fit: cover;
+
+         border-radius: rem(4);
+
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+      }
+   }
+}
+
+//========================================================================================================================================================

@@ -1,0 +1,195 @@
+//====================================================================================================
+.header {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+
+	z-index: $ui-index-3;	
+
+	&__container {
+	}
+
+	&__box {
+		justify-content: space-between;
+		align-items: center;
+
+		@include ui-headerbox-padding;
+		@include ui-globalnav-flex-row;
+	}
+
+	&__logo {
+		@include ui-globalnav-flex-row;
+		@include ui-globalnav-item;
+
+		&:hover {
+			@media #{$mouse-device} {
+				color: $lightColor;
+			}
+		}
+
+		align-self: start;
+
+		&::after {
+			display: none;
+			margin-left: rem(5);
+			
+			font-size: rem(25);
+		}
+
+		@media (min-width: $mobile) and (max-width: $tablet){
+			align-items: center;
+			
+			&::after {
+				display: block;
+			}
+		}
+	
+		@media (min-width: $pc){
+			align-items: center;
+
+			&::after {
+				display: block;
+			}
+		}
+	}
+
+	&__globalnav {
+		@include ui-margin-space(left, 4);
+		
+		@media (min-width: $mobileXSmall) and (max-width: $mobile){
+			@include ui-margin-space(left, 4);
+		}
+	
+		@media (min-width: $mobile) and (max-width: $tablet){
+			@include ui-margin-space(left, 10);
+		}
+	
+		@media (min-width: $pc){
+			@include ui-margin-space(left, 10);
+		}
+	}
+}
+
+.header-globalnav {
+
+	&__list {
+		@include ui-globalnav-flex-row;
+
+		justify-content: flex-end;
+		align-items: center;
+		flex-wrap: wrap;
+
+		gap: $ui-step * 3;
+
+		@media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+			gap: $ui-step * 3;
+		}
+
+		@media (min-width: $mobileSmall) and (max-width: $mobile){
+			@include adaptiveValue("gap", 23, 15, 1, 637, 480);
+		}
+	
+		@media (min-width: $mobile) and (max-width: $tablet){
+			@include adaptiveValue("gap", 40, 23, 1, 950, 637);
+		}
+	
+		@media (min-width: $pc){
+			gap: $ui-step * 8;
+		}
+
+	}
+
+	&__item {
+		@include ui-globalnav-flex-row;
+	}
+
+	&__link {
+		@include ui-globalnav-item;
+	}
+
+	&__data-spoller-button{
+		@include ui-globalnav-flex-row;
+		@include ui-globalnav-item;
+		@include ui-globalnav-arrow-active;
+
+		align-items: center;
+		position: relative;
+	}
+
+	&__data-spoller-body {
+		@include ui-globalnav-spollerbody;
+
+		hr {
+			height: rem(1);
+			width: 100%;
+			opacity: 0.15;
+			background: $whiteColor;
+		}
+
+		li {
+			&:not(:first-child) {
+				@include ui-margin-space(top, 2);
+			}
+		}
+	}
+
+	&__data-spoller-item {
+		@include ui-globalnav-spoller;
+	}
+}
+
+//====================================================================================================
+
+//Burger
+/*
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		z-index: 5;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #000;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+*/

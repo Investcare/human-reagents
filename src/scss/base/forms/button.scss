@@ -1,0 +1,167 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+$mouse-device: '(hover: hover) and (pointer: fine)';
+
+.orange-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+   
+   font-size: rem(24);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+
+   color: $whiteColor;
+
+	border-radius: rem(4);
+	background: $orangeColor;
+
+	width: 100%;
+	height: rem(48);
+	top: 0;
+
+	transition: box-shadow 0.3s ease 0s;
+
+	&:hover {
+		@media #{$mouse-device} {
+			background: #F67D37;
+		}
+	}
+
+	&:active{
+		@media #{$mouse-device} {
+			top: rem(3);
+
+			background: #F45014;
+		}
+	}
+	
+	@media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+		width: 100%;
+	}
+
+   @media (min-width: $mobileSmall) and (max-width: $mobile){
+		width: 100%;
+	}
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+		width: rem(300);
+	}
+
+   @media (min-width: $pc){
+		width: rem(300);
+	}
+}
+
+.pale-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+   
+   font-size: rem(24);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+
+   color: $lightColor;
+
+	border-radius: rem(4);
+	border: rem(2) solid #F8F8F8;
+
+	width: 100%;
+	height: rem(48);
+	top: 0;
+
+	transition: box-shadow 0.3s ease 0s;
+
+	&:hover {
+		@media #{$mouse-device} {
+			color: #C8C8C8;
+			border-color: #C8C8C8;
+		}
+	}
+
+	&:active{
+		@media #{$mouse-device} {
+			top: rem(3);
+			
+			color: #A0A0A0;
+			border-color: #A0A0A0;
+		}
+	}
+
+	@media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+		width: 100%;
+	}
+
+   @media (min-width: $mobileSmall) and (max-width: $mobile){
+		width: 100%;
+	}
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+		width: rem(300);
+	}
+
+   @media (min-width: $pc){
+		width: rem(300);
+	}
+}
+
+.darkblue-pale-button{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+   
+   font-size: rem(24);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+
+   color: $darkColor;
+
+	border-radius: rem(4);
+	border: rem(2) solid $darkColor;
+
+	width: 100%;
+	height: rem(48);
+	top: 0;
+
+	transition: box-shadow 0.3s ease 0s;
+
+	&:hover {
+		@media #{$mouse-device} {
+			color: #283237;
+			border-color: #283237;
+		}
+	}
+
+	&:active{
+		@media #{$mouse-device} {
+			top: rem(3);
+			
+			color: #14191C;
+			border-color: #14191C;
+		}
+	}
+
+	@media (min-width: $mobileXSmall) and (max-width: $mobileSmall){
+		width: 100%;
+	}
+
+   @media (min-width: $mobileSmall) and (max-width: $mobile){
+		width: 100%;
+	}
+
+   @media (min-width: $mobile) and (max-width: $tablet){
+		width: rem(300);
+	}
+
+   @media (min-width: $pc){
+		width: rem(300);
+	}
+}

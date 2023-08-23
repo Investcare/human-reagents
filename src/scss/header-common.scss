@@ -1,0 +1,83 @@
+//Миксины для хеддера
+//Паддинги сверху и снизу для хеддера
+@mixin ui-headerbox-padding {
+   padding-top: rem(13);
+}
+
+//Ссылки навигации и их форматирование
+@mixin ui-globalnav-item {
+   font-family: "M PLUS 1p";
+
+   font-size: rem(16);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 700;
+
+   color: $whiteColor;
+
+   &:hover {
+      @media #{$mouse-device} {
+         color: $blueColor;
+      }
+   }
+}
+
+//Тело спойлера
+@mixin ui-globalnav-spollerbody {
+   position: absolute;
+   top: $ui-step * 18;
+   
+   width: $ui-step * 27;
+
+   padding: rem(9);
+
+   border-radius: rem(4);
+   background: rgba($darkColor, 0.45);
+
+   @media (min-width: $mobileXSmall) and (max-width: em(512.98)){
+      top: $ui-step * 18;
+   }
+
+   @media (min-width: em(512.98)) and (max-width: $tablet){
+      top: $ui-step * 10;
+   }
+
+   @media (min-width: $pc){
+      top: $ui-step * 10;
+   }
+}
+
+//Ссылки в спойлере
+@mixin ui-globalnav-spoller {
+   font-family: "Noto Sans";
+
+   font-size: rem(16);
+   line-height: normal;
+   font-style: normal;
+   font-weight: 400;
+
+   color: $whiteColor;
+
+   &:hover {
+      @media #{$mouse-device} {
+         color: $blueColor;
+      }
+   }
+}
+
+//Движение стрелки спойлера
+@mixin ui-globalnav-arrow-active {
+   &::after{
+      transition: transform 0.3s ease 0s;
+   }
+
+   &._spoller-active{
+      &::after{
+         transform: rotate(-180deg);
+         transition: transform 0.3s ease 0s;
+         padding: 0;
+      }
+   }
+}
+
+//========================================================================================================================================================
